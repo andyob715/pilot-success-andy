@@ -61,22 +61,22 @@ def predict():
         var2 = int(input_2)
         var3 = int(input_3)
         var4 = int(input_4)
+
+        #Updated max hours to max income value
         var5 = int(input_5)*240
         
+        #building the dataframe for the model
         input_list = ["coursename", "start_month", "course_count", "e2e_course_days"]
-
         raw_user_input = pd.DataFrame([[var1,var2,var3,var4]],columns=input_list)
-
-        scaled_user_input = loaded_scaler.transform(raw_user_input)
         
+        #make prediction based on random forest model
+        scaled_user_input = loaded_scaler.transform(raw_user_input)
         Guess = loaded_model.predict(scaled_user_input)
 
+        #building out the variables to fill the JSON payload to return
         Max_Income = var5
-
         Actual_Cost = Guess[0]*175
-
         Actual_Income = Guess[0]*240
-
         if Actual_Income > Max_Income:
             Set_Income = Max_Income
         else: 
@@ -86,7 +86,7 @@ def predict():
 
         Income_Ratio = Net_Income / Set_Income
 
-        return {"Prediction": Guess[0],"Max_Income":Max_Income,"Actual_Income":Actual_Income,"Cost":Actual_Cost,"Net_Income":Net_Income,"Income_Pct":Income_Ratio}
+        return {"Prediction": Guess[0],"Max_Income":Max_Income,"Actual_Income":Actual_Income,"Set Income":Set_Income,"Cost":Actual_Cost,"Net_Income":Net_Income,"Income_Pct":Income_Ratio}
         
     return render_template("prediction.html")
 

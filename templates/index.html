@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head> 
 
-<body class="back">
+<body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="/">LIFT Project Overview</a>
@@ -51,65 +51,62 @@
             <br>
         </div> <!--closes jumbotron-->
         <br>
-        
-        <div class="row">      
-            <h3>LIFT Background</h3>
-                <hr class="my-4">
-                    <p>The Leadership In Flight Training (LIFT) Academy offers pilot training programs including a direct classroom-to-cockpit opportunity. 
-                        Working with Republic Airlines, LIFT Academy training has the potential to advance to Captain. 
-                        The programs are tailored around each student’s schedule. 
-                    </p>
-                    <hr class="my-4">
+        <div class="row">
+          <h3>LIFT Background</h3>
+          <p>The Leadership In Flight Training (LIFT) Academy offers pilot training programs including a direct classroom-to-cockpit opportunity. 
+          Working with Republic Airlines, LIFT Academy training has the potential to advance to Captain. 
+          he programs are tailored around each student’s schedule. 
+          </p>
         </div>
+      <div class="border-top my-3"></div>
         <div class="row">     
             <h3>Project Goal: Predict Profitability of an Incoming Student</h3>
-            <hr class="my-4">
                     <p>Using real data from Lift Academy to determine a student’s flight hours based on days spent within the course. 
                         This will be used to predict time requirements for new students and cost per student for the company. 
                         In the future, additional information can be added to this to determine how much time it will take a multicourse student to complete all necessary training to become a trainer or move to domestic/national flight captain. 
                     </p>
-                    <hr class="my-4">
         </div>
+        <div class="border-top my-3"></div>
         <div class="row">
-        <h3>Project Steps</h3>
-        <hr class="my-4">
-        <div class="card-deck">
-            <div class="card">
-              <img class="card-img-top" src="../static/images/start_img.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Starting Point</h5>
-                <p class="card-text">Gathered all graduation data from LIFT Academy records and validated usability of data</p>
+          <h3>Project Steps</h3>
+          <div class="card-deck">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/start_img.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Starting Point</h5>
+                    <p class="card-text">Gathered all graduation data from LIFT Academy records and validated usability of data</p>
+                  </div> <!--closes card body-->
+              </div><!--closes card-->
+              <div class="card">
+                <img class="card-img-top" src="../static/images/construct_img.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Additional Data Construction</h5>
+                      <p class="card-text">Removed/verified no PII was available in the dataset.
+                      Added/manipulated columns to get better inputs for prediction. Calculated whether student was a multi-class learner or not. </p>
+                  </div><!--closes card body-->
+              </div><!--closes card-->
+              <div class="card">
+                <img class="card-img-top" src="../static/images/machine_img.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title">Initate Machine Learning</h5>
+                    <p class="card-text">Once the data was cleanded and prepped we attempted to determine the best model for the data without over/underfitting. Based on models tested, the Random Forest Method generated the best results.</p>
+                  </div>
               </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="../static/images/construct_img.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Additional Data Construction</h5>
-                <p class="card-text">Removed/verified no PII was available in the dataset.
-                    Added/manipulated columns to get better inputs for prediction. Calculated whether student was a multi-class learner or not. </p>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="../static/images/machine_img.jpg" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">Initate Machine Learning</h5>
-                <p class="card-text">Once the data was cleanded and prepped we attempted to determine the best model for the data without over/underfitting. Based on models tested, the Random Forest Method generated the best results.</p>
-              </div>
-            </div>
-            <div class="card">
+              <div class="card">
                 <img class="card-img-top" src="../static/images/flight_img.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Deployment</h5>
-                  <p class="card-text">Utilized Pickle to download the Machine Learning model and create an instance that runs in a webapp connected to Heroku and can generate predictions based on unser input.</p>
-                </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Deployment</h5>
+                      <p class="card-text">Utilized Pickle to download the Machine Learning model and create an instance that runs in a webapp connected to Heroku and can generate predictions based on unser input.</p>
+                  </div>
               </div>
-              <hr class="my-4">
-          </div>
+            </div><!--closes card deck-->
           <br>
-        </div>
+        </div><!--closes row-->
+        <div class="border-top my-3"></div>
           <div class='row'>
             <h3>Learning Model Comparison</h3>
             <br>
+          </div>
             <table class="table table-striped">
                 <thead>
                   <tr>
@@ -159,6 +156,7 @@
                 </tbody>
               </table>
           </div>
+          <div class="border-top my-3"></div>
           <h3>Code Used</h3>
           <div class="row">
             <br>
