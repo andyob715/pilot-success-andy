@@ -1,0 +1,16 @@
+.main_background{
+    background-color: whitesmoke;
+}
+
+.jumbotron {
+    background-color:lightgray;
+    text-align: center;
+}
+
+img {
+    width: 200px; /* You can set the dimensions to whatever you want */
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Machine Learning Row */

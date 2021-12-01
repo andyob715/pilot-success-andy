@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Project</title>
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+
+<!--Some dumb scripts I finally realized i had to add to get the dropdown to work-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head> 
+
+<body class="back">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">LIFT Project Overview</a>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/predict">Profitability Calculator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/JakeRose689/Pilot-Success">Project Github Repo</a>
+      </li>
+      
+  
+      <!-- Dropdown -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          Team Members Github
+        </a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="https://github.com/staceyj118">Stacey Smoot</a>
+          <a class="dropdown-item" href="https://github.com/JakeRose689">Jake Rose</a>
+          <a class="dropdown-item" href="https://github.com/andyob715">Andy O'Bryan</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+<!-- End vertical navbar -->    
+<div class='container-fluid'>
+        <div class="jumbotron"> 
+            <h3 class='display-1'> Lift Academy Student <br>
+                Profitability Calculator </h3>
+            <br>
+        </div> <!--closes jumbotron-->
+        <br>
+        
+        <div class="row">      
+            <h3>LIFT Background</h3>
+                <hr class="my-4">
+                    <p>The Leadership In Flight Training (LIFT) Academy offers pilot training programs including a direct classroom-to-cockpit opportunity. 
+                        Working with Republic Airlines, LIFT Academy training has the potential to advance to Captain. 
+                        The programs are tailored around each student’s schedule. 
+                    </p>
+                    <hr class="my-4">
+        </div>
+        <div class="row">     
+            <h3>Project Goal: Predict Profitability of an Incoming Student</h3>
+            <hr class="my-4">
+                    <p>Using real data from Lift Academy to determine a student’s flight hours based on days spent within the course. 
+                        This will be used to predict time requirements for new students and cost per student for the company. 
+                        In the future, additional information can be added to this to determine how much time it will take a multicourse student to complete all necessary training to become a trainer or move to domestic/national flight captain. 
+                    </p>
+                    <hr class="my-4">
+        </div>
+        <div class="row">
+        <h3>Project Steps</h3>
+        <hr class="my-4">
+        <div class="card-deck">
+            <div class="card">
+              <img class="card-img-top" src="../static/images/start_img.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Starting Point</h5>
+                <p class="card-text">Gathered all graduation data from LIFT Academy records and validated usability of data</p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="../static/images/construct_img.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Additional Data Construction</h5>
+                <p class="card-text">Removed/verified no PII was available in the dataset.
+                    Added/manipulated columns to get better inputs for prediction. Calculated whether student was a multi-class learner or not. </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src="../static/images/machine_img.jpg" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Initate Machine Learning</h5>
+                <p class="card-text">Once the data was cleanded and prepped we attempted to determine the best model for the data without over/underfitting. Based on models tested, the Random Forest Method generated the best results.</p>
+              </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="../static/images/flight_img.jpg" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Deployment</h5>
+                  <p class="card-text">Utilized Pickle to download the Machine Learning model and create an instance that runs in a webapp connected to Heroku and can generate predictions based on unser input.</p>
+                </div>
+              </div>
+              <hr class="my-4">
+          </div>
+          <br>
+        </div>
+          <div class='row'>
+            <h3>Learning Model Comparison</h3>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Model</th>
+                    <th scope="col">Train Score</th>
+                    <th scope="col">Test Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>LinearRegression</td>
+                    <td>0.377543</td>
+                    <td>0.393088</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>KNeighborsRegressor</td>
+                    <td>0.897379</td>
+                    <td>0.814140</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>RandomForestRegressor</td>
+                    <td>0.991842</td>
+                    <td>0.938078</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>ExtraTreesRegressor</td>
+                    <td>0.99963</td>
+                    <td>0.932982</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>AdaBoostRegressor</td>
+                    <td>0.934881</td>
+                    <td>0.927058</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>SVR</td>
+                    <td>0.377099</td>
+                    <td>0.386975</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <h3>Code Used</h3>
+          <div class="row">
+            <br>
+            <div class="col-md-3">
+                <li>Pandas</li>
+                <li>numpy</li>
+                <li>Pickle</li>
+                <li>HTML</li>
+                <li>Flask</li>
+                <li>Heroku</li>
+            </div>
+            <div class="col-md-3">
+                <li>Matplotlib</li>
+                <li>sklearn</li>
+                <li>Javascript</li>
+                <li>CSS</li>
+                <li>JSON</li>
+            </div>
+          </div>
+              <!-- Footer-->
+    <div id="footer" class="main_background">
+        <p class="footer-text">SOAR-JS&copy;2021</p>
+    </div>
+ <!-- Link to JS file, d3, and plotly-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+ <script src=“https://code.jquery.com/jquery-3.3.1.slim.min.js” integrity=“sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo” crossorigin=“anonymous”></script>
+ <script src=“https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js” integrity=“sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM” crossorigin=“anonymous”></script>
+ <script src="https://d3js.org/d3.v7.min.js"></script>
+ <script src="../static/js/app.js"></script>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</body>
+
+</html>
